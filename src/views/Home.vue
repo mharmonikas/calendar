@@ -16,7 +16,7 @@
           <v-list-item-title class="text-h5 mb-1">
 
           </v-list-item-title>
-          <v-list-item-subtitle>{{ calendar.date }}</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ parseDate(calendar.date) }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -78,7 +78,18 @@
             </v-chip-group>
           </v-card-text>
 
+          <v-card-text v-if="selection !== null">
+            <v-select
+                class="d-inline"
+                style="width: 100px;"
+                v-model="sendEach"
+                :items="[1,2,3,4,5,6,7,8,9]"
+                :label="'Send each x ' + selectionType"
+            ></v-select>
+          </v-card-text>
+
           <v-card-title>Send reminder emails until:</v-card-title>
+
           <v-card-text>
             <v-menu
                 ref="showDate"
@@ -122,7 +133,10 @@
               </v-date-picker>
             </v-menu>
           </v-card-text>
-<!--          <v-date-picker v-model="sendUntil"></v-date-picker>-->
+
+          <v-card-text v-if="showError">
+            <p style="color: red;">Please fill in all the fields before sending the reminder.</p>
+          </v-card-text>
 
           <v-card-actions>
             <v-btn
@@ -153,410 +167,428 @@
         dialog: false,
         calendars: [
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
           {
-            clientName: 'test',
+            clientName: 'Angelina Jolie',
             date: new Date(),
           },
         ],
         calendar: {},
-        selection: [],
+        selection: null,
         sendUntil: null,
         showDate: false,
+        sendEach: null,
+        showError: false
+      }
+    },
+
+    computed: {
+      selectionType() {
+        switch (this.selection) {
+          case 0:
+            return 'days';
+          case 1:
+            return 'weeks';
+          case 2:
+            return 'months';
+          case 3:
+          default:
+            return 'years';
+        }
       }
     },
 
@@ -567,7 +599,22 @@
       },
 
       sendReminder() {
-        axios.post('backend-route', {calendar: this.calendar, selection: this.selection})
+        if(!this.validate()) {
+          this.showError = true
+          return
+        }
+
+        axios.post('backend-route', {calendar: this.calendar, selection: this.selection, sendUntil: this.sendUntil, sendEach: this.sendEach})
+        this.showError = false
+        this.dialog = false
+      },
+
+      parseDate(date) {
+        return date.getFullYear() + '-' + ((date.getMonth() + 1) > 9 ? '' : '0') + (date.getMonth() + 1) + (date.getDate() > 9 ? '' : '0') + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes();
+      },
+
+      validate() {
+        return !(this.selection === null || !this.sendUntil);
       }
     }
   }
